@@ -527,7 +527,7 @@ Output (CSV + Figures)
 
 ## Acknowledgements (optional)
 
-* **Code Institute**: Gratitude to the Code Institute program and course administrators (Vasi Pavaloi, Mark, Tom Cohen, and Niel) for guidance and support throughout the project despite my linux issues.
+* **Code Institute**: Gratitude to the Code Institute program and course administrators (Vasi Pavaloi, Mark, Tom Cohen, Niel and my Bootcamp mates) for guidance and support throughout the project despite my linux issues.
 * **Data Science Community**: The pandas, scikit-learn, and seaborn communities for building excellent open-source tools that enabled this analysis.
 * **Feature Engine Developers**: Special thanks to the Feature Engine library creators for providing robust outlier handling tools.
 * **Educational Resources**: Jupyter documentation and various data science tutorials that informed best practices for notebook organization and analysis workflows.
