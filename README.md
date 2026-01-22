@@ -480,7 +480,7 @@ The current project is a **Jupyter Notebook-based analysis** with the following 
 **7. Statsmodels (v0.14.6)**
 - **Purpose**: Advanced statistical modeling and hypothesis testing
 - **Note**: Imported but not actively used in current analysis; prepared for future statistical testing
-- **Future Use**: T-tests, ANOVA, regression diagnostics
+- **Future Use**: T-tests (differences between mean of grouped variables for a better sense of correlation), ANOVA, regression diagnostics
 
 ### Library Interaction Flow:
 
