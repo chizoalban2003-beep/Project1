@@ -42,12 +42,13 @@ The dataset comprises 1,338 healthcare insurance records with the following char
 **Primary Hypothesis**: Smoking status (smoker) is the strongest predictor of insurance costs, followed by age, while demographic factors (sex, region) have minimal impact on pricing (charges).
 
 **Statistical Methods**:
+1. **Descriptive statistics**: Providing the descriptive summaries of both the numerical (mean, median (50%),count, 75th and 25th quantile, standard deviation, max and min values) and  categorical (mode(freq),top and unique values) variables.
 1. **Categorical and Numerical Data Analysis**: Visualization of the variable behaviours or distribution (spread) through histograms, pie charts, and grouped distributions to identify patterns.
 2. **Correlation Analysis**: 
    - Pearson correlation to measure linear relationships
    - Spearman correlation to measure monotonic (non-linear) relationships
-3. **Comparative Statistics**: Group comparisons using numerical distributions ('age',bmi, children and charges) grouped by categorical variables
-4. **Outlier Detection**: IQR-based boxplot analysis to identify extreme values
+3. **Comparative/Grouping Statistics**: Group comparisons using numerical distributions ('age',bmi, children and charges) grouped by categorical variables (smoking habits, geographical region and sex).
+4. **Outlier Detection**: IQR-based boxplot analysis to identify outlier values which was capped using the Winsorizer capper from the feature engine library.
 
 **Expected Outcomes**:
 - Smoking status will show highest correlation with charges
@@ -57,9 +58,10 @@ The dataset comprises 1,338 healthcare insurance records with the following char
 
 ## Project Plan
 
-### High-Level Steps:
+### Steps:
+#### Extract, Transformation and Loading of the raw dataset (ETL pipeline):
 
-1. **Data Collection & Exploration**: Load insurance.csv and perform initial data inspection using `.info()`, `.describe()`, and `.head()` methods
+1. **Data Collection & Exploration**: Load insurance.csv and perform initial data inspection using `.info()`  method.
 2. **Data Quality Assessment**: 
    - Check for missing values using `.isnull().sum()`
    - Identify duplicates using `.duplicated()`
@@ -69,10 +71,10 @@ The dataset comprises 1,338 healthcare insurance records with the following char
    - Apply Feature Engine's Winsorizer for outlier capping (IQR method, fold=1.5, tail='both')
    - Cap outliers in BMI and Charges variables
 4. **Data Export**: Save cleaned dataset to `Cleaned_Insurance_Data.csv`
-5. **Exploratory Data Visualization**:
-   - Distribution plots (histograms with KDE) for numerical variables
-   - Pie charts for categorical variables
-   - Grouped histograms by categorical variables with color-coding by smoker status
+5. **Data Visualization**:
+   - Distribution plots (histograms with KDE) for numerical variables (age,bmi, charges and children)
+   - Pie charts for categorical variables (region, sex and smoking habits)
+   - Grouped histograms and KDE  plots by categorical variables with color-coding by smoker status
 6. **Statistical Analysis**:
    - Calculate Pearson correlation (linear relationships)
    - Calculate Spearman correlation (monotonic relationships)
@@ -89,10 +91,10 @@ The dataset comprises 1,338 healthcare insurance records with the following char
 
 ### Methodology Justification:
 
-- **Winsorizer vs Other Methods**: IQR-based capping chosen over deletion because it preserves data volume while reducing extreme values' influence. Fold=1.5 is industry-standard for moderate outlier treatment
+- **Winsorizer vs Other Methods**: IQR-based capping chosen over deletion because it preserves data volume while reducing outlier values' influence unlike the Arbitrary capper or Outlier Trimmer which reduces the data volume. Fold=1.5 is business-standard for moderate outlier treatment
 - **Pearson + Spearman**: Using both methods reveals whether relationships are linear or non-linear, providing more complete picture than single correlation method
-- **Grouped Visualizations**: Breaking down by categorical variables shows how relationships hold (or don't hold) across demographic segments
-- **Pipeline Structure**: Ensures reproducible, scalable data transformation suitable for automation in production environments
+- **Grouped Visualizations**: Breaking down by categorical variables shows how relationships affect demographic segments.
+- **Pipeline Structure**: Ensures reproducible, scalable data transformation suitable for automation in production environments.
 
 ## The rationale to map the business requirements to the Data Visualisations
 
@@ -525,7 +527,8 @@ Output (CSV + Figures)
 
 ## Acknowledgements (optional)
 
-* **Data Science Community**: The pandas, scikit-learn, and seaborn communities for building excellent open-source tools that enabled this analysis
-* **Feature Engine Developers**: Special thanks to the Feature Engine library creators for providing robust outlier handling tools
-* **Educational Resources**: Jupyter documentation and various data science tutorials that informed best practices for notebook organization and analysis workflows
-* **GitHub & Version Control**: Appreciation for Git version control system that enabled tracking of analysis iterations and recovery of previous states
+* **Code Institute**: Gratitude to the Code Institute program and course administrators (Vasi Pavaloi, Mark, Tom Cohen, and Niel) for guidance and support throughout the project despite my linux issues.
+* **Data Science Community**: The pandas, scikit-learn, and seaborn communities for building excellent open-source tools that enabled this analysis.
+* **Feature Engine Developers**: Special thanks to the Feature Engine library creators for providing robust outlier handling tools.
+* **Educational Resources**: Jupyter documentation and various data science tutorials that informed best practices for notebook organization and analysis workflows.
+* **GitHub & Version Control**: Appreciation for Git version control system that enabled tracking of analysis iterations and recovery of previous states.
